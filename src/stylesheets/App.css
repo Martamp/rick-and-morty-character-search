@@ -41,3 +41,39 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.detail--container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  width: 500px;
+  padding: 20px;
+  color: white;
+  background-color: rgb(0, 217, 255);
+  text-align: center;
+}
+.detail--img {
+  width: 250px;
+}
+.detail--text--container {
+  padding-left: 30px;
+  text-align: left;
+  width: 250px;
+  display: flex;
+  flex-direction: column;
+}
+.return--button {
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  position: relative;
+  left: 240px;
+}
+.return--container {
+  display: block;
+}
+.background {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
