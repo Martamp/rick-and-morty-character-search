@@ -1,9 +1,12 @@
 import React from 'react';
 import logo from '../images/logo-rick-and-morty.png';
 
-function Header() {
+function Header(props) {
   const handleInput = (ev) => {
-    console.log(ev.target.value);
+    props.handleInput({
+      value: ev.target.value,
+      key: 'name',
+    });
   };
   return (
     <>

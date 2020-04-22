@@ -6,17 +6,21 @@ import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 function App() {
   const [characters, setCharacters] = useState([]);
+  const [name, setName] = useState('');
   useEffect(() => {
     getApiData().then((data) => {
       setCharacters(data);
     });
   }, []);
-
+  function handleInput(data) {
+    console.log(data, 'mi data del handle');
+    setName(data);
+  }
   return (
     <div className="App">
-      {/* <Header /> */}
-      {/* <CharacterList characters={characters} /> */}
-      <CharacterDetail characters={characters} />
+      <Header handleInput={handleInput} />
+      <CharacterList characters={characters} />
+      {/* <CharacterDetail characters={characters} /> */}
     </div>
   );
 }
