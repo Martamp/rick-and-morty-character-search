@@ -1,8 +1,8 @@
 import React from 'react';
 import logo from '../images/logo-rick-and-morty.png';
 import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 function CharacterDetail(props) {
-  console.log(props.character.name);
   return (
     <>
       <div className="background">
@@ -24,5 +24,13 @@ function CharacterDetail(props) {
     </>
   );
 }
+CharacterDetail.propTypes = {
+  id: propTypes.number,
+  name: propTypes.string,
+  species: propTypes.string,
+  status: propTypes.string,
+  origin: propTypes.string,
+  episodes: propTypes.number,
+};
 
 export default CharacterDetail;

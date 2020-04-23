@@ -26,10 +26,16 @@ function App() {
     });
     return <Homepage handleInput={handleInput} characters={filter} filteredBy={value} />;
   }
+  //  function handleHomePage() {
+  //    const filter = characters.filter((character) => {
+  //      return character.name.toLowerCase().includes(name.toLowerCase());
+  //    });
+  //    const myfilter = filter ? <Homepage handleInput={handleInput} characters={filter} filteredBy={value} /> : <NotFound />;
+  //    return myfilter;
+  //  }
 
   const handleCharacterDetail = (props) => {
     const detailId = parseInt(props.match.params.id);
-    console.log(detailId);
     const myCharacterDetail = characters.find((character) => {
       return character.id === detailId;
     });

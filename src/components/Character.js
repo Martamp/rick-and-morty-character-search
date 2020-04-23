@@ -1,7 +1,6 @@
 import React from 'react';
-import prueba from '../images/prueba.png';
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
-
+import propTypes from 'prop-types';
 function Character(props) {
   return (
     <Link to={`/character/${props.character.id}`}>
@@ -15,5 +14,9 @@ function Character(props) {
     </Link>
   );
 }
-
+Character.propTypes = {
+  id: propTypes.number,
+  name: propTypes.string,
+  species: propTypes.string,
+};
 export default Character;
