@@ -23,9 +23,9 @@ function App() {
     return character.name.toLowerCase().includes(name.toLowerCase());
   });
 
-  function handleCharacterDetail() {
-    return <CharacterDetail />;
-  }
+  // function handleCharacterDetail() {
+  //   return <CharacterDetail />;
+  // }
 
   return (
     <div className="App">
@@ -33,7 +33,7 @@ function App() {
       <Filter handleInput={handleInput} />
       <CharacterList characters={filter} />
       <Switch>
-        <Route exact path="/character/:id" render={handleCharacterDetail} />
+        <Route path="/character/:id" component={CharacterDetail} /> />
         <Route exact path="/" />
       </Switch>
     </div>
