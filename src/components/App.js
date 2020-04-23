@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../stylesheets/App.css';
 import getApiData from '../services/api.js';
-import Header from './Header';
-import Filter from './Filter';
-import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import { Route, Switch } from 'react-router-dom';
 import Homepage from './Homepage';
@@ -27,9 +24,16 @@ function App() {
     return <Homepage handleInput={handleInput} characters={filter} />;
   }
 
-  function handleCharacterDetail() {
-    return <CharacterDetail />;
-  }
+  const handleCharacterDetail = (props) => {
+    const detailId = parseInt(props.match.params.id);
+    console.log(detailId);
+    const myCharacterDetail = characters.find((character) => {
+      console.log(character.id);
+      return character.id === detailId;
+    });
+    console.log(myCharacterDetail);
+    return <CharacterDetail character={myCharacterDetail} />;
+  };
 
   return (
     <div className="App">
