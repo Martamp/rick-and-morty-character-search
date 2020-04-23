@@ -7,7 +7,7 @@ function Homepage(props) {
   return (
     <div className="App">
       <Header />
-      <Filter handleInput={props.handleInput} />
+      <Filter handleInput={props.handleInput} filteredBy={props.filteredBy} />
       <CharacterList characters={props.characters} />
     </div>
   );

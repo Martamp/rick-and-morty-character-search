@@ -4,10 +4,12 @@ import getApiData from '../services/api.js';
 import CharacterDetail from './CharacterDetail';
 import { Route, Switch } from 'react-router-dom';
 import Homepage from './Homepage';
+import NotFound from './NotFound';
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const [name, setName] = useState('');
+  const [value, setValue] = useState('');
   useEffect(() => {
     getApiData().then((data) => {
       setCharacters(data);
@@ -15,24 +17,27 @@ function App() {
   }, []);
   function handleInput(data) {
     setName(data.value);
+    setValue(data.value);
   }
 
   function handleHomePage() {
     const filter = characters.filter((character) => {
       return character.name.toLowerCase().includes(name.toLowerCase());
     });
-    return <Homepage handleInput={handleInput} characters={filter} />;
+    return <Homepage handleInput={handleInput} characters={filter} filteredBy={value} />;
   }
 
   const handleCharacterDetail = (props) => {
     const detailId = parseInt(props.match.params.id);
     console.log(detailId);
     const myCharacterDetail = characters.find((character) => {
-      console.log(character.id);
       return character.id === detailId;
     });
-    console.log(myCharacterDetail);
-    return <CharacterDetail character={myCharacterDetail} />;
+    if (myCharacterDetail !== undefined) {
+      return <CharacterDetail character={myCharacterDetail} />;
+    } else {
+      return <NotFound />;
+    }
   };
 
   return (
