@@ -14,12 +14,18 @@ function App() {
   }, []);
   function handleInput(data) {
     console.log(data, 'mi data del handle');
-    setName(data);
+    setName(data.value);
   }
+
+  const filter = characters.filter((character) => {
+    return character.name.toLowerCase().includes(name.toLowerCase());
+  });
+
+  console.log(filter);
   return (
     <div className="App">
       <Header handleInput={handleInput} />
-      <CharacterList characters={characters} />
+      <CharacterList characters={filter} />
       {/* <CharacterDetail characters={characters} /> */}
     </div>
   );
