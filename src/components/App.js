@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import '../stylesheets/App.css';
 import getApiData from '../services/api.js';
 import Header from './Header';
+import Filter from './Filter';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
+import { Route, Switch } from 'react-router-dom';
+
 function App() {
   const [characters, setCharacters] = useState([]);
   const [name, setName] = useState('');
@@ -13,7 +16,6 @@ function App() {
     });
   }, []);
   function handleInput(data) {
-    console.log(data, 'mi data del handle');
     setName(data.value);
   }
 
@@ -21,12 +23,19 @@ function App() {
     return character.name.toLowerCase().includes(name.toLowerCase());
   });
 
-  console.log(filter);
+  function handleCharacterDetail() {
+    return <CharacterDetail />;
+  }
+
   return (
     <div className="App">
-      <Header handleInput={handleInput} />
+      <Header />
+      <Filter handleInput={handleInput} />
       <CharacterList characters={filter} />
-      {/* <CharacterDetail characters={characters} /> */}
+      <Switch>
+        <Route exact path="/character/:id" render={handleCharacterDetail} />
+        <Route exact path="/" />
+      </Switch>
     </div>
   );
 }
