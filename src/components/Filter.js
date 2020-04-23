@@ -10,7 +10,7 @@ function Filter(props) {
   };
   return (
     <form>
-      <input className="container--input" type="text" placeholder="Busca un personaje" onChange={handleInput} />
+      <input className="container--input" type="text" placeholder="Busca un personaje" value={props.filteredBy} onChange={handleInput} />
     </form>
   );
 }
