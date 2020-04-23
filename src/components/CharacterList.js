@@ -3,6 +3,7 @@ import prueba from '../images/prueba.png';
 import Character from './Character';
 
 function CharacterList(props) {
+  console.log(props, 'my props');
   const myCharacter = props.characters.map((character) => {
     return <Character key={character.id} character={character} />;
   });

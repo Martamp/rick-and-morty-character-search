@@ -6,6 +6,7 @@ import Filter from './Filter';
 import CharacterList from './CharacterList';
 import CharacterDetail from './CharacterDetail';
 import { Route, Switch } from 'react-router-dom';
+import Homepage from './Homepage';
 
 function App() {
   const [characters, setCharacters] = useState([]);
@@ -19,22 +20,22 @@ function App() {
     setName(data.value);
   }
 
-  const filter = characters.filter((character) => {
-    return character.name.toLowerCase().includes(name.toLowerCase());
-  });
+  function handleHomePage() {
+    const filter = characters.filter((character) => {
+      return character.name.toLowerCase().includes(name.toLowerCase());
+    });
+    return <Homepage handleInput={handleInput} characters={filter} />;
+  }
 
-  // function handleCharacterDetail() {
-  //   return <CharacterDetail />;
-  // }
+  function handleCharacterDetail() {
+    return <CharacterDetail />;
+  }
 
   return (
     <div className="App">
-      <Header />
-      <Filter handleInput={handleInput} />
-      <CharacterList characters={filter} />
       <Switch>
-        <Route path="/character/:id" component={CharacterDetail} /> />
-        <Route exact path="/" />
+        <Route exact path="/" render={handleHomePage} />
+        <Route path="/character/:id" render={handleCharacterDetail} /> />
       </Switch>
     </div>
   );

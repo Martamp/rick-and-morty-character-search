@@ -7,7 +7,9 @@ function CharacterDetail(props) {
     <>
       <div className="background">
         <img className="container--img" src={logo} alt="logo" />
-        <p className="return--button">Volver</p>
+        <Link to="/" className="return--button">
+          Volver
+        </Link>
         <div className="detail--container">
           <img className="detail--img" src={prueba} alt="img" />
           <span className="detail--text--container">
