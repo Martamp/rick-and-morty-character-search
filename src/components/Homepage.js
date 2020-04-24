@@ -8,7 +8,7 @@ function Homepage(props) {
     <div className="App">
       <Header />
       <Filter handleInput={props.handleInput} filteredBy={props.filteredBy} />
-      <CharacterList characters={props.characters} />
+      <CharacterList characters={props.characters} filteredBy={props.filteredBy} />
     </div>
   );
 }
