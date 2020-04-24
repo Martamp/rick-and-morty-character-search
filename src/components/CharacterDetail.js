@@ -3,6 +3,8 @@ import logo from '../images/logo-rick-and-morty.png';
 import { Link } from 'react-router-dom';
 import propTypes from 'prop-types';
 function CharacterDetail(props) {
+  const characterStatus = props.character.status === 'Dead' ? 'Dead ☠️' : 'Alive 🌱';
+  const characterSpecies = props.character.species === 'Alien' ? '👽' : '👦';
   return (
     <>
       <div className="background">
@@ -14,8 +16,8 @@ function CharacterDetail(props) {
           <img className="detail--img" src={props.character.img} alt={props.character.name} />
           <span className="detail--text--container">
             <h3 className="list--name">{props.character.name}</h3>
-            <small>Status: {props.character.status}</small>
-            <small>Species: {props.character.species}</small>
+            <small>Status: {characterStatus}</small>
+            <small>Species: {characterSpecies}</small>
             <small>Origin: {props.character.origin}</small>
             <small>Episodes: {props.character.episodes}</small>
           </span>

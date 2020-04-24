@@ -67,6 +67,7 @@
   width: 250px;
   display: flex;
   flex-direction: column;
+  font-size: 18px;
 }
 .return--button {
   color: white;
