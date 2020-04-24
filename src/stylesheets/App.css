@@ -9,13 +9,16 @@
 
 .container--input {
   margin-top: 20px;
+  margin-bottom: 10px;
   width: 400px;
   height: 30px;
-  padding-left: 10px;
+  padding-left: 30px;
   border-color: rgb(0, 217, 255);
   background-color: transparent;
   color: rgb(0, 217, 255);
+  border-radius: 20px;
   font-size: 16px;
+  outline: none;
 }
 .list--element {
   margin: 5px;
@@ -85,7 +88,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: black;
+  background-image: url('https://wallpaperplay.com/walls/full/e/b/8/54075.jpg');
 }
 .detail--container--notfound {
   align-items: center;
